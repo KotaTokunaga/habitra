@@ -1,0 +1,8 @@
+
+            ...
+            <%= @tweet.body %>
+            <%= @tweet.created_at %>
+            <%= @tweet.tweet_title %>
+            <%= link_to "一覧ページへ", root_path %>
+            <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+            <p><a id="tweet-close" class="button-link">閉じる</a></p>

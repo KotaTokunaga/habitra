@@ -1,0 +1,57 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h4 class="card-title text-center">HABITANT登録</h4>
+            <form class="form-signin">
+
+              <div class="form-label-group">
+                <%= f.text_field :username, autofocus: true,:class=> "form-control" %>
+                <%= f.label :"お名前" %><br />
+              </div>
+
+              <div class="form-label-group">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",:class=> "form-control" %>
+                <label for="inputEmail">メールアドレス</label>
+              </div>
+
+              <div class="form-label-group">
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password",:class=> "form-control" %>
+                <%= f.label :"パスワード" %>
+              </div>
+
+              <div class="form-label-group">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",:class=> "form-control" %>
+                <%= f.label :"パスワード確認（もう一度入力してください）" %>
+              </div>
+
+              <div class="form-label-group">
+                <h5 class="text-center confirmation bg-info text-white">HABITANTになるお約束</h5>
+                <p>・あなた自身が体験したことのみを投稿してください。行ったことのない場所&体験したことがないものを投稿することは厳禁です。</p>
+                <p>・HABITRAは無料のWebサービスです。本サービスを介して金銭の受け渡しはおやめ頂くようお願いいたします。</p>
+                <p>・あなたの投稿を見た人が直接あなたに連絡してくるかもしれません（URLを記載している場合）</p>
+                <h6 class="text-center"><%= f.check_box :confirmation %><%= f.label :confirmation, "全てに同意する" %></h6>
+
+              </div>
+
+              <%= f.submit "新規登録！", :class=>"btn btn-lg btn-info btn-block text-uppercase" %>
+              <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+              <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, :class=>"btn btn-lg btn-google btn-block text-uppercase" %>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<%= render "users/shared/links" %>

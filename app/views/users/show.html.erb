@@ -1,0 +1,74 @@
+<div class="text-center user-show-top">
+  <%= image_tag @user.avatar.to_s, class: "avatar" %><br>
+  <p class="font-weight-bold show-username"><%= @user.username%></p><br>
+  <%= @user.user_introduction %><br>
+  <p class="font-weight-bold show-history history-title">URL</p><br>
+  <p class="show-history"><%= @user.user_url %></p><br>
+  <p class="font-weight-bold show-history history-title">〜渡航歴〜</p><br>
+  <p class="show-history"><%= @user.history %></p><br>
+
+</div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <% @user.tweets.each do |t| %>
+        <div class="col-md-4">
+            <div class="card tweet-box　border-info" style="width: 18rem;">
+              <div class="card-body border border-info rounded">
+                <h3 class="card-title"><%= t.tweet_title %></h3>
+                <p>場所名：<%= link_to t.place, "https://www.google.com/search?q=#{t.place}",class:"text-info bg-transparent" %></p>
+                <%= image_tag t.img.to_s,class:"rounded" %>
+                <p>#<%= t.country %> #<%= t.city %>#<%= t.japanese %></p>
+                <p class="card-text"></p>
+
+
+                <!-- Button triggers modal -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#<%= t.id %>">
+                  詳細へ
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="<%= t.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><%= t.tweet_title %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>場所名：<%= link_to t.place, "https://www.google.com/search?q=#{t.place}",class:"text-info bg-transparent" %></p>
+                        <%= image_tag t.img.to_s, class:"rounded tweet-img" %><br>
+                        <%= t.body %><br>
+                        <p>投稿時間：<%= t.created_at %></p>
+                      </div>
+                      <div class="modal-footer">
+                        <p>#<%= t.country %> #<%= t.city %></p><br>
+                        <% if t.user_id == current_user.id %>
+                          <%= button_to "編集する", edit_tweet_path(t.id), class: "btn btn-info" %>
+                        <% end %>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                <% if t.user_id == current_user.id %>
+                  <%= link_to "削除する", tweet_path(t.id),class:"btn btn-outline-info", method: :delete %>
+                <% end %>
+              </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto tweet-new">
+      <%= form_for @tweet do |f| %>
+
+      <!-- Material form contact -->
+      <div class="card ">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>投稿の編集</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;">
+
+
+
+            <!-- title -->
+            <%= f.text_field :tweet_title,placeholder: "タイトル" %><br>
+
+
+            <%# place %>
+            <%= f.text_field :place,placeholder: "施設名" %><br>
+
+
+
+            <!-- image -->
+            <%= f.label :"写真：" %><%= f.file_field :img %><br>
+            <!--content-->
+            <div class="md-form">
+              <label for:"materialContactFormMessage"></label><%= f.text_area :body,class:"form-control md-textarea",id:"materialContactFormMessage",rows:"5",placeholder: "内容" %>
+            </div><br>
+
+            <!-- country -->
+            <%= f.text_field :country,placeholder: "国名" %> <br>
+
+
+            <!-- city -->
+            <%= f.text_field :city,placeholder: "街名" %><br>
+
+
+            <!-- Send button -->
+            <%= f.submit "編集する",class:"btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" %>
+
+          </form>
+          <!-- Form -->
+
+        </div>
+
+      </div>
+      <!-- Material form contact -->
+      <% end %>
+      <%= link_to "投稿一覧に戻る", tweets_path %>
+    </div>
+  </div>
+</div>

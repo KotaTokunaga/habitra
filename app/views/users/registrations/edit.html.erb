@@ -1,0 +1,93 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col">
+
+      </div>
+      <div class="col-4">
+        <div class="field">
+          <%= f.label :"プロフィール画像" %><br />
+          <% if current_user.avatar.present? %>
+            <%= image_tag(current_user.avatar.url) %>
+              <%= f.label :remove_avatar do %>
+              <%= f.check_box :remove_avatar %>
+            <% end %>
+          <% end %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+      </div>
+      <div class="col">
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-1"></div>
+
+      <div class="col-5">
+
+        <div class="field">
+          <%= f.label :"ユーザーネーム" %><br />
+          <%= f.text_field :username, autofocus: true %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :"URL(ホームページ/ブログ/SNSなど)" %><br>
+          <%= f.text_field :user_url, autofocus: true %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :"パスワード変更" %> <i>(変更しない場合は空欄で構いません)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> 文字以上</em>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label :"パスワード変更（再入力）" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :"現在のパスワード" %> <i>(登録情報の変更はパスワード入力が必須です)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "アカウントを更新", class:"btn btn-lg btn-info btn-block"%>
+        </div>
+
+
+
+        <%= link_to "戻る", :back, class: "btn btn-log btn-info" %>
+      </div>
+
+      <div class="col-5">
+
+
+        <div class="field">
+          <%= f.label :"自己紹介" %> <br>
+          <%= f.text_area :user_introduction, autofocus: true, class: "user-text",rows: 10 %>
+        </div>
+        <div class="field">
+          <%= f.label :"渡航歴" %><br />
+          <%= f.text_area :history, autofocus: true , class: "user-text", rows:10,placeholder:"例&#13;&#10;アメリカ/カナダ/ベトナム/シンガポール".html_safe %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<%end%>

@@ -1,0 +1,110 @@
+<!-- TOP -->
+
+<div class="top">
+
+  <h1>HABITRA</h1>
+  <p class="text-white">リアルな体験を未来の旅行者と共有するプラットフォーム</p>
+
+  <div class="search-container">
+
+    <div class="top-search">
+      <%= button_to "リアルを発掘しよう", tweets_path, {method: :get, class:"btn btn-info btn-lg"} %>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- CONTENT -->
+
+<div class="content container">
+
+  <h2>What's HABITRA?</h2>
+
+  <div class="content-block">
+    <h3>HABITANT(投稿者)になるメリット</h3>
+    <div class="content-lists row">
+
+      <div class="content-list col-md-4">
+
+        <h4>気軽にたくさん投稿！</h4>
+        <%= image_tag("content_1.png", :class =>"content-image") %>
+        <p>投稿するのは写真１枚＆一言だけ！ブログの記事みたいにたくさん書かなくていいので、気軽にあなたの体験をシェアできます。</p>
+
+      </div>
+
+      <div class="content-list col-md-4">
+
+        <h4>あなた自身の宣伝に！</h4>
+        <%= image_tag("content_2.png", :class =>"content-image") %>
+        <p>プロフィールにあなたのブログやHPを掲載することができます！利用者の目に止まればフォロワーが増えるかも？</p>
+
+      </div>
+
+      <div class="content-list col-md-4">
+
+        <h4>旅人同士の交流に！</h4>
+        <%= image_tag("content_3.png", :class =>"content-image") %>
+        <p>海外に足を運ぶ人同士、きっと価値観が近いはず。友達作りのきっかけに！</p>
+
+      </div>
+
+    </div>
+    <%= button_to "あなたもHABITANTになってみよう", new_user_registration_path, {method: :get, class:"btn btn-danger btn-lg"} %>
+  </div>
+  <div class="content-top">
+    <h3>HABITRAを閲覧するメリット</h3>
+  </div>
+  <div class="content-block content-block2">
+    <div class="content-lists row">
+
+      <div class="content-list col-md-4">
+
+        <h4>リアルな情報</h4>
+        <%= image_tag("content_4.png", :class =>"content-image") %>
+        <p>投稿されるのはHABITANT(投稿者)が実際に訪れた場所のみ。リアルな情報をお届けします！</p>
+
+      </div>
+
+      <div class="content-list col-md-4">
+
+        <h4>インスタ感覚で気軽に見れる</h4>
+        <%= image_tag("content_5.png", :class =>"content-image") %>
+        <p>写真だけでも気軽に閲覧でき、見るだけでも楽しい！</p>
+
+      </div>
+
+      <div class="content-list col-md-4">
+
+        <h4>旅人に連絡取ってみるのもアリ</h4>
+        <%= image_tag("content_6.png", :class =>"content-image") %>
+        <p>HABITANT(投稿者)で気になる人がいれば直接連絡を取ってみることもできます！(URLを載せているHABITANTのみ)</p>
+
+      </div>
+
+    </div>
+    <%= button_to "さぁ、リアルを発掘しよう", tweets_path, {method: :get, class:"btn btn-info btn-lg"} %>
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+  <div class="footer-left">
+
+    <h3>HABITRA</h3>
+
+  </div>
+
+  <div class="footer-right">
+
+    <%= link_to "お問い合わせ", :controller=> "question_form", :action=> "index" %>
+
+  </div>
+
+</div>

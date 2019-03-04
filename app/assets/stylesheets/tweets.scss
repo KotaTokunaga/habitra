@@ -1,0 +1,24 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tweet-box{
+  float: left;
+}
+
+.tweet-time {
+  float:left;
+}
+.tweets-top{
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+.btn-tweet-new{
+  margin-bottom: 20px;
+}
+.tweet-img{
+  text-align: center;
+}
+.tweet-new{
+  padding-top: 50px;
+}
