@@ -70,6 +70,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rmagick'
 
+gem 'font-awesome-rails'
+
 gem 'fog-aws'
 
 gem 'bootstrap', '~> 4.0.0.beta'

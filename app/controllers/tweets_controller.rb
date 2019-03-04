@@ -13,8 +13,6 @@ class TweetsController < ApplicationController
     end
   end
 
-  # ログインしていなかったら、このコントラーラーの全ての機能が使えない
-  before_action :authenticate_user!
 
 # 新しいツイートの投稿
   def new

@@ -3,7 +3,7 @@
   <p class="font-weight-bold show-username"><%= @user.username%></p><br>
   <%= @user.user_introduction %><br>
   <p class="font-weight-bold show-history history-title">URL</p><br>
-  <p class="show-history"><%= @user.user_url %></p><br>
+  <p class="show-history"><%= link_to @user.user_url, @user.user_url, class:"bg-transparent" %></p><br>
   <p class="font-weight-bold show-history history-title">〜渡航歴〜</p><br>
   <p class="show-history"><%= @user.history %></p><br>
 
@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <% @user.tweets.each do |t| %>
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12">
             <div class="card tweet-box　border-info" style="width: 18rem;">
               <div class="card-body border border-info rounded">
                 <h3 class="card-title"><%= t.tweet_title %></h3>

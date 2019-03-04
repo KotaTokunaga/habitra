@@ -4,7 +4,7 @@
     <div class="col">
 
     </div>
-    <div class="col-md-4 tweets-top">
+    <div class="col-md-4 col-sm-12 tweets-top">
       <% if user_signed_in? %>
         <%= link_to "あなたの体験を投稿する", new_tweet_path,class:"btn btn-outline-info btn-tweet-new"  %>
       <% end %>
@@ -23,13 +23,13 @@
   <div class="container">
     <div class="row">
       <% @users.each do |f| %>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card tweet-box　border-info" style="width: 18rem;">
           <div class="card-body">
 
 
             <div class="text-center">
-              <%= image_tag f.avatar.to_s, class: "avatar" %>
+              <%= image_tag f.avatar.to_s, class: "avatar" %><br>
               <button type="button" class="btn btn-info btn-username" data-toggle="modal" data-target="#<%= f.id %>">
                 <%= f.username %>
               </button>
@@ -55,12 +55,12 @@
                         <%= image_tag f.avatar.to_s, class: "avatar" %><br>
                       </div>
 
-                      <p>URL:<%= f.user_url %></p><br>
+                      <p>URL:<%= link_to f.user_url, f.user_url, class:"bg-transparent" %></p><br>
                       <%= f.user_introduction %><br>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <% if f.id == current_user.id %>
+                    <% if user_signed_in? and f.id == current_user.id %>
                       <%= button_to "編集する", edit_user_registration_path(current_user), {class: "btn btn-outline-info", method: :get} %>
                     <% end %>
                     <%= link_to "詳細へ", user_path(f.id), class:"btn btn-info" %>
@@ -73,17 +73,4 @@
       </div>
       <% end %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-4">
-
-    </div>
-
   </div>

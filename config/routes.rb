@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "inquiry" => "question_form#index"
   get "users/confirmation" => "users#confirmation"
+  get "/users" => "users#index"
 
   resources :maps
   resources :photos

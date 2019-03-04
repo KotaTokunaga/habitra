@@ -5,7 +5,7 @@
     <div class="col">
 
     </div>
-    <div class="col-md-4 tweets-top">
+    <div class="col-md-4 col-sm-12 tweets-top col-sm-12">
       <% if user_signed_in? %>
       <%= link_to "新規投稿へ", new_tweet_path,class:"btn btn-outline-info btn-tweet-new"  %>
       <% end %>
@@ -27,7 +27,7 @@
   <div class="container">
     <div class="row">
       <% @tweets.each do |t| %>
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-12 col-sm-12">
           <div class="card tweet-box　border-info" style="width: 18rem;">
             <div class="card-body border border-info rounded">
               <h3 class="card-title"><%= t.tweet_title %></h3>

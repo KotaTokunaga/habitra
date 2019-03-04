@@ -13,7 +13,11 @@ class UsersController < ApplicationController
 
   end
 
-  before_action :authenticate_user!
+  def show
+    @user = User.find(params[:id])
+
+  end
+
 
   def update
     @user = User.find(params[:id])
@@ -26,10 +30,6 @@ class UsersController < ApplicationController
 
   end
 
-  def show
-    @user = User.find(params[:id])
-
-  end
 
 
   private
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def user_params
    params.require(:user).permit(:username,:email,
      :password,:image,:avatar,:avatar_cache,:user_url,
-     :country,:user_introduction)
+     :country,:user_introduction,:history)
   end
 
 end
