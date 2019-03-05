@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_021701) do
+ActiveRecord::Schema.define(version: 2019_03_04_061255) do
 
   create_table "continents", force: :cascade do |t|
     t.string "name"
@@ -84,12 +84,12 @@ ActiveRecord::Schema.define(version: 2019_03_05_021701) do
     t.string "avatar"
     t.string "ancestry"
     t.string "user_url"
-    t.string "confirmation"
+    t.string "regions"
     t.integer "region_id"
     t.integer "country_id"
     t.integer "length_id"
     t.string "history"
-    t.string "regions"
+    t.string "confirmation"
     t.index ["ancestry"], name: "index_users_on_ancestry"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
