@@ -10,29 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_134134) do
-
-  create_table "add_ancestry_to_users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "continents", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_03_04_061255) do
 
   create_table "countries", force: :cascade do |t|
     t.string "country_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "region_id"
-  end
-
-  create_table "create_continents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "length_of_stays", force: :cascade do |t|
@@ -68,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_134134) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "img"
-    t.string "title"
     t.string "tweet_title"
     t.string "place"
     t.string "city"
@@ -89,12 +72,10 @@ ActiveRecord::Schema.define(version: 2019_03_05_134134) do
     t.string "uid"
     t.string "provider"
     t.string "username"
-    t.string "image"
     t.text "user_introduction"
     t.string "avatar"
     t.string "ancestry"
     t.string "user_url"
-    t.string "regions"
     t.integer "region_id"
     t.integer "country_id"
     t.integer "length_id"
@@ -103,11 +84,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_134134) do
     t.index ["ancestry"], name: "index_users_on_ancestry"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "worlds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

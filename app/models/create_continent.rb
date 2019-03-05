@@ -1,2 +1,0 @@
-class CreateContinent < ApplicationRecord
-end

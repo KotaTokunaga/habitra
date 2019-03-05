@@ -41,6 +41,14 @@
             <!-- city -->
             <%= f.text_field :city,placeholder: "街名" %><br>
 
+            <!-- language -->
+            <%= f.check_box :japanese, {}, "#日本語対応","" %>
+            <%= f.label :japanese, "日本語対応" %>
+            <%= f.check_box :english, {}, "#英語対応","" %>
+            <%= f.label :english, "英語対応" %>
+            <%= f.check_box :local, {}, "#現地語のみ","" %>
+            <%= f.label :local, "現地語のみ" %>
+
 
             <!-- Send button -->
             <%= f.submit "編集する",class:"btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" %>
