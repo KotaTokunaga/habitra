@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root "home#top"
 
   devise_for :users
   get "inquiry" => "question_form#index"
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   post "/" => "tweets#index"
   post "tweets/:id" => "tweets#show"
   post "tweets/:id/edit" => "tweets#edit"
+  root "home#top"
 
   # 修正前のルーティングを下に残しておきました。
 
