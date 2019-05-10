@@ -13,30 +13,35 @@
 
   <body>
 
-    <div class="header">
-
-      <div class="header-left">
-
-        <%= link_to "HABITRA", "/home",class:" text-header bg-transparent" %>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-light header">
+      <%= link_to "HABITRA", "/home",class:"text-left text-header bg-transparent navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto header-nav">
+          <li class="nav-item text-right">
+            <%= link_to "投稿一覧", tweets_path,class:" text-header bg-transparent nav-link" %>
+          </li>
+          <li class="nav-item text-right">
+            <%= link_to "HABITANT一覧", users_path,class:" text-header bg-transparent nav-link" %>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item text-right">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class:" text-header bg-transparent nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item text-right">
+            <%= link_to "新規登録", new_user_registration_path,class:" text-header bg-transparent nav-link" %>
+          </li>
+          <li class="nav-item text-right">
+            <%= link_to "ログイン", new_user_session_path,class:" text-header bg-transparent nav-link" %>
+          </li>
+          <% end %>
+        </ul>
       </div>
-
-      <div class="header-right">
-        <%= link_to "投稿一覧", tweets_path,class:" text-header bg-transparent" %>
-        <%= link_to "HABITANT一覧", users_path,class:" text-header bg-transparent" %>
-        <%# 修正前 %>
-        <%#= link_to "HABITANT一覧", users_index_path %>
-        <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class:" text-header bg-transparent" %>
-        <% else %>
-          <%= link_to "新規登録", new_user_registration_path,class:" text-header bg-transparent" %>
-          <%= link_to "ログイン", new_user_session_path,class:" text-header bg-transparent" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="app-header">
-      <%= yield %>
-    </div>
+    </nav>
+    <%= yield %>
 
   </body>
 </html>

@@ -1,3 +1,7 @@
+<div class="app-header">
+
+</div>
+
 <div class="text-center user-show-top">
   <%= image_tag @user.avatar.to_s, class: "avatar" %><br>
   <p class="font-weight-bold show-username"><%= @user.username%></p><br>
@@ -46,7 +50,7 @@
                       </div>
                       <div class="modal-footer">
                         <p>#<%= t.country %> #<%= t.city %></p><br>
-                        <% if t.user_id == current_user.id %>
+                        <% if user_signed_in? && t.user_id == current_user.id %>
                           <%= button_to "編集する", edit_tweet_path(t.id), class: "btn btn-info" %>
                         <% end %>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -63,7 +67,7 @@
                     </div>
                   </div>
                 </div>
-                <% if t.user_id == current_user.id %>
+                <% if user_signed_in? && t.user_id == current_user.id %>
                   <%= link_to "削除する", tweet_path(t.id),class:"btn btn-outline-info", method: :delete %>
                 <% end %>
               </div>

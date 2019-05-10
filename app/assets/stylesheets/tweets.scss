@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tweet-box{
-  float: left;
+  width: 100%;
+  margin: 0 auto;
 }
-
+.tweet-content{
+  padding-top: 1rem;
+}
 .tweet-time {
   float:left;
 }
@@ -20,5 +23,8 @@
   text-align: center;
 }
 .tweet-new{
+  padding-top: 50px;
+}
+.app-header {
   padding-top: 50px;
 }

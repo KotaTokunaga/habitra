@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root "home#top"
   devise_for :users
   get "inquiry" => "question_form#index"
   get "users/confirmation" => "users#confirmation"
@@ -12,10 +13,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show, :update]
 
   get "/home" => "home#top"
-  post "/" => "tweets#index"
   post "tweets/:id" => "tweets#show"
   post "tweets/:id/edit" => "tweets#edit"
-  root "home#top"
 
   # 修正前のルーティングを下に残しておきました。
 

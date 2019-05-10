@@ -73,6 +73,10 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:body,:img,:tweet_title,:place,:city,:country,:japanese,:english,:local)
 
   end
+  def tweets_params
+    params.require(:tweets).permit(:body,:img,:tweet_title,:place,:city,:country,:japanese,:english,:local)
+
+  end
 
 
 end

@@ -1,88 +1,17 @@
-<form>
+<div class="app-header">
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
+</div>
 
-      </div>
-      <div class="col-6">
-        <div class="form-group"> <!-- Name field -->
-          <label class="control-label " for="name">Name</label>
-          <input class="form-control" id="name" name="name" type="text"/>
-        </div>
-
-      </div>
-      <div class="col">
-
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-
-      </div>
-      <div class="col-6">
-        <div class="form-group"> <!-- Email field -->
-          <label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
-          <input class="form-control" id="email" name="email" type="text"/>
-        </div>
-
-      </div>
-      <div class="col">
-
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-
-      </div>
-      <div class="col-6">
-        <div class="form-group"> <!-- Subject field -->
-          <label class="control-label " for="subject">Subject</label>
-          <input class="form-control" id="subject" name="subject" type="text"/>
-        </div>
-
-      </div>
-      <div class="col">
-
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-
-      </div>
-      <div class="col-6">
-        <div class="form-group"> <!-- Message field -->
-          <label class="control-label " for="message">Message</label>
-          <textarea class="form-control" cols="40" id="message" name="message" rows="10"></textarea>
-        </div>
-
-      </div>
-      <div class="col">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-
-      </div>
-      <div class="col-6">
-        <div class="form-group">
-          <button class="btn btn-info " name="submit" type="submit">Submit</button>
-        </div>
-
-      </div>
-      <div class="col">
-
-      </div>
+<div class="inquiry">
+  <h1 class="text-center">HABITRAを作った人</h1>
+  <div class="row">
+    <%= image_tag("kota.jpg", class:"kota-photo text-center") %>
+    <div class="intro-myself text-center">
+      <p>徳永晃汰（コウタ）</p>
+      <p>新卒でツアーコーディネーターとしてカンボジアに就職。</p>
+      <p>所有資格：総合旅行業務取扱管理者,The Foudation of International Tourism with Amadeus by IATA</p>
+      <p>⬇︎お問い合わせ＆ご要望やHABITRAに対するご意見などはTwitterのDMにて受付中⬇︎</p>
+      <%= link_to "Twitter","https://twitter.com/kotaxi_garden",class:"text-info bg-transparent" %>
     </div>
   </div>
-
-
-
-
-
-
-</form>
+</div>

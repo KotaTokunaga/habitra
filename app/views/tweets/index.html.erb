@@ -1,4 +1,6 @@
+<div class="app-header">
 
+</div>
 
 <div class="container">
   <div class="row">
@@ -7,11 +9,11 @@
     </div>
     <div class="col-md-4 col-sm-12 tweets-top col-sm-12">
       <% if user_signed_in? %>
-      <%= link_to "新規投稿へ", new_tweet_path,class:"btn btn-outline-info btn-tweet-new"  %>
+        <%= link_to "新規投稿へ", new_tweet_path,class:"btn btn-outline-info btn-tweet-new"  %>
       <% end %>
-      <%= form_tag(controller:"tweets",action:"index") do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag '検索',:city => nil,:country => nil,:japanese => nil,:english => nil,:local => nil,class:"btn btn-outline-info"  %>
+      <%= form_tag tweets_path, method: :get do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag '検索',:city => nil,:country => nil,:japanese => nil,:english => nil,:local => nil,class:"btn btn-outline-info"  %>
       <% end %>
 
     </div>
@@ -27,7 +29,7 @@
   <div class="container">
     <div class="row">
       <% @tweets.each do |t| %>
-      <div class="col-md-4 col-sm-12 col-sm-12">
+      <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card tweet-box　border-info" style="width: 18rem;">
             <div class="card-body border border-info rounded">
               <h3 class="card-title"><%= t.tweet_title %></h3>
@@ -46,20 +48,21 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle"><%= t.tweet_title %></h5>
+                      <h4 class="modal-title" id="exampleModalLongTitle"><%= t.tweet_title %></h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
-                      <p>場所名：<%= link_to t.place, "https://www.google.com/search?q=#{t.place}",class:"text-info bg-transparent" %></p>
+                    <div class="modal-body text-center">
+                      <p>場所名：<%= link_to t.place, "https://www.google.com/search?q=#{t.place}",class:"text-info h5 bg-transparent" %></p>
                       <%= image_tag t.img.to_s, class:"rounded tweet-img" %><br>
-                      <%= t.body %><br>
-                      <p>投稿時間：<%= t.created_at %></p>
+                      <p class="tweet-content">
+                        <%= t.body %><br>
+                      </p>
                     </div>
                     <div class="modal-footer">
                       <p>#<%= t.country %> #<%= t.city %></p><br>
-                      <% if t.user_id == current_user.id %>
+                      <% if user_signed_in? and t.user_id == current_user.id %>
                         <%= button_to "編集する", edit_tweet_path(t.id), class: "btn btn-info" %>
                       <% end %>
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -76,7 +79,7 @@
                   </div>
                 </div>
               </div>
-              <% if t.user_id == current_user.id %>
+              <% if user_signed_in? and t.user_id == current_user.id %>
                 <%= link_to "削除する", tweet_path(t.id),class:"btn btn-outline-info", method: :delete %>
               <% end %>
             </div>

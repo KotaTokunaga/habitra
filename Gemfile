@@ -51,6 +51,7 @@ group :development do
 end
 
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
@@ -72,10 +73,13 @@ gem 'rmagick'
 
 gem 'font-awesome-rails'
 
+gem 'carrierwave'
 gem 'fog-aws'
 
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 gem 'geocoder'
 
